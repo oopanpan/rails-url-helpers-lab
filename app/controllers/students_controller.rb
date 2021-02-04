@@ -8,7 +8,14 @@ class StudentsController < ApplicationController
   def show
   end
 
-
+  def update
+    if @student.active != true
+      @student.update(ative:true)
+    else
+      @student.update(active:false)
+    end
+    redirect_to student_path(@student)
+  end
 
   private
 
